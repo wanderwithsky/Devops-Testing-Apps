@@ -13,7 +13,7 @@
   fetch("http://localhost:5000/products")
     .then(res => res.json())
     .then(data => {
-      const div = document.getElementById("products");
+      const div = document.getElementById("home");
       data.forEach(p => {
         div.innerHTML += `<p>${p.name} - ₹${p.price}</p>`;
       });
@@ -21,4 +21,5 @@
   </script>
 </body>
 </html>
+
 
