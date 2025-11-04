@@ -9,5 +9,18 @@
   <h1 class="mb-3">Welcome to Test2 App</h1>
   <p>This is a sample app with Bootstrap styling.</p>
   <a href="contact.html" class="btn btn-primary mt-3">Contact Us</a>
+  <script>
+fetch("http://localhost:5000/data")
+  .then(response => response.json())
+  .then(data => {
+    const div = document.createElement("div");
+    data.forEach(user => {
+      div.innerHTML += `<p>${user.name} - ${user.email}</p>`;
+    });
+    document.body.appendChild(div);
+  })
+  .catch(err => console.error(err));
+</script>
 </body>
 </html>
+
