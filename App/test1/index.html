@@ -9,8 +9,17 @@
   <h1 class="mb-3">Welcome to Test1 App</h1>
   <p>This is the home page. Data will be fetched from MySQL here later.</p>
   <a href="about.html" class="btn btn-primary mt-3">About Us</a>
+
+  
+  <script>
+  fetch("http://localhost:5000/about")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("content").innerHTML =
+      `<h2>${data[0].title}</h2><p>${data[0].description}</p>`;
+  });
+</script>
+<div id="content"></div>
+
 </body>
 </html>
-
-
-

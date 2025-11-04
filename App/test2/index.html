@@ -9,7 +9,16 @@
   <h1 class="mb-3">Welcome to Test2 App</h1>
   <p>This is a sample app with Bootstrap styling.</p>
   <a href="contact.html" class="btn btn-primary mt-3">Contact Us</a>
+
+  <script>
+  fetch("http://localhost:5000/contact")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("content").innerHTML =
+      `<h2>${data[0].title}</h2><p>${data[0].description}</p>`;
+  });
+</script>
+<div id="content"></div>
+
 </body>
 </html>
-
-

@@ -9,5 +9,16 @@
   <h1 class="mb-3">Welcome to Test3 App</h1>
   <p>Simple Bootstrap demo page for the third app.</p>
   <a href="services.html" class="btn btn-primary mt-3">Our Services</a>
+
+  <script>
+  fetch("http://localhost:5000/services")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("content").innerHTML =
+      `<h2>${data[0].title}</h2><p>${data[0].description}</p>`;
+  });
+</script>
+<div id="content"></div>
+
 </body>
 </html>

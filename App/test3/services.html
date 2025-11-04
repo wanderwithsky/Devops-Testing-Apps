@@ -2,12 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test3 App - Services</title>
+  <title>Test3 - Services</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light text-center mt-5">
-  <h1>Our Services - Test3 App</h1>
-  <p>We will display services from MySQL database here soon.</p>
-  <a href="index.html" class="btn btn-secondary mt-3">Back to Home</a>
+<body class="text-center bg-light mt-5">
+  <h1>Our Services</h1>
+  <div id="services" class="container mt-4"></div>
+
+  <script>
+  fetch("http://localhost:5000/services")
+    .then(res => res.json())
+    .then(data => {
+      const div = document.getElementById("services");
+      data.forEach(s => {
+        div.innerHTML += `
+          <div class="card p-3 mb-3 shadow-sm">
+            <h5>${s.service_name}</h5>
+            <p>₹${s.price}</p>
+          </div>`;
+      });
+    })
+    .catch(err => console.error("Error:", err));
+  </script>
 </body>
 </html>
